@@ -1,0 +1,26 @@
+<html>
+
+    <head>
+        <title>The Data</title>
+    </head>
+
+    <body>
+        <h1>Here is the output!</h1>
+
+        <%
+            if (data.length > 0){
+            for (var i=0; i < data.length; i++){ 
+        %>
+       
+        
+                    <!-- <div id="dataout <%= i %> "><%= data[i].text %></div>
+                    <div id="dataout <%= i %> "><%= data[i].checkbox %></div>
+                    <div id="dataout <%= i %> "><%= data[i].email %></div> -->
+                    <div id="dataout <%= i %> "><a href="/displayrecord?_id=<%= data[i]._id %>"><%= data[i].text %></a></div>
+        <%      
+                }
+            }
+        %>
+    </body>
+
+</html>

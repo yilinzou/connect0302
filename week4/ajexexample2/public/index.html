@@ -1,0 +1,182 @@
+<html>
+    <head>
+        
+
+        <title>
+            Wedding Guest Book
+            
+
+        </title>
+        <style>
+        .titletext {
+              position: fixed;
+              color:black;
+              /* background-color:#fcfcfc; */
+              /* text-shadow: 1px 3px 1px rgb(139, 133, 133); */
+              /* border: 6px solid black; */
+              width: 200px;
+              left: 20px;
+              top: 200px;
+              font-size: 20px;
+              font-family: Times New Roman(serif);
+              text-align: left;
+          }
+        img {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 90vh;
+            opacity: 1;
+            z-index: 2;
+            border-radius: 0px 0px 0px 0px;
+        }
+        .nameText1 {
+              position: fixed;
+              color:black;
+              /* background-color:#fcfcfc; */
+              /* text-shadow: 1px 3px 1px rgb(139, 133, 133); */
+              /* border: 6px solid black; */
+              width: 300px;
+              left: 20px;
+              top: 300px;
+              font-size: 20px;
+              font-family: Times New Roman(serif);
+              text-align: left;
+          }
+        .nameText2 {
+              position: fixed;
+              color:black;
+              /* background-color:#fcfcfc; */
+              /* text-shadow: 1px 3px 1px rgb(139, 133, 133); */
+              /* border: 6px solid black; */
+              width: 200px;
+              left: 150px;
+              top: 300px;
+              font-size: 15px;
+              font-family: Times New Roman (serif);
+              text-align: left;
+          }
+        .decText {
+            position: fixed;
+            color:black;
+            left: 20px;
+            top: 350px;
+            font-size: 20px;
+            font-family: Times New Roman(serif);
+            text-align: left;
+        }
+        .decText2 {
+            position: fixed;
+            color:black;
+            left: 20px;
+            top: 460px;
+            font-size: 20px;
+            font-family: Times New Roman(serif);
+            text-align: left;
+        }
+        .decText3 {
+            position: fixed;
+            color:black;
+            left: 150px;
+            top: 353px;
+            font-size: 15px;
+            font-family: Times New Roman(serif);
+            text-align: left;
+        }
+        .decText4 {
+            position: fixed;
+            color:black;
+            left: 20px;
+            top: 400px;
+            font-size: 20px;
+            font-family: Times New Roman(serif);
+            text-align: left;
+        }
+        .decText5 {
+            position: fixed;
+            color:black;
+            left: 150px;
+            width: 200px;
+            top: 400px;
+            font-size: 15px;
+            font-family: Times New Roman(serif);
+            text-align: left;
+        }
+        </style>
+        <script type="text/javascript">
+
+            console.log('hii');
+
+            var messages = null;
+            var submit = null;
+            var text = null;
+            var checkbox = null;
+            var email = null;
+
+            window.addEventListener('load', function(){
+                messages = document.getElementById('messages');
+                submit = document.getElementById('submit');
+                submit.addEventListener('click', sendData);
+                text = document.getElementById('text');
+                checkbox = document.getElementById('checkbox');
+                email = document.getElementById('email');
+            })
+
+            function sendData(){
+                fetch('/formdata?text='+text.value+"&checkbox="+checkbox.checked+"&email="+email.value)
+                .then(response => response.json())
+                .then(data => populatedMessages(data));
+            }
+            function populatedMessages(newMessages){
+
+                message.innerHTML="";
+
+
+                for(var i =0; i < newMessages.length; i++)
+                {
+                    messages.innerHTML = messages.innerHTML + "<li>"+newMessages[i].text+"</li>";
+                }
+                 
+
+            }
+        </script>
+    </head>
+<!-- <body>
+    <form method="GET" action="/formdata">
+        <label for="data">Enter Text to Post:</label>
+        <input type="text" name="data" value="Enter Text">
+        <input type="submit" name="submit" value="Submit">
+    
+    
+    </form>
+
+
+</body> -->
+
+
+        <body>
+            <ul id="messages">
+                <li>previous messages</li>
+            </ul>
+
+            <form>
+                <div class="titletext"><b>Wedding Guest Log</b></div>
+                <label class="nameText1" for="data">Your name:</label>
+                <input class="nameText2" id="text" type="text" name="data" placeholder="Enter Name">
+                <input class="decText3" id="checkbox" type="checkbox" name="checkbox">
+                <label class="decText" for="plusone">I have guests</label>
+                <input class="decText2" type="button" id="submit" name="submit" value="Submit">
+                <label class="decText4" for="email">Contact:</label>
+                <input class="decText5" type="email" id="email" name="email" placeholder="Email Address"><br />
+                <!-- <textarea name="longtext" cols="80" rows="10"> -->
+                </textarea>
+                <!-- <input type="color" name="color"> -->
+            
+            
+            </form>
+            <img src="title.jpg">
+
+        </body>
+
+
+</html>
