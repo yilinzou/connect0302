@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Yilin's space</title>
+<style>
+    .greeting {
+
+    color: rgb(2, 0, 0);
+    padding: 2px;
+    font-size: 60px;
+    font-family: 'Trebuchet MS', sans-serif;
+
+    } 
+
+    .chinese {
+
+    color: rgb(2, 0, 0);
+    padding: 2px;
+    font-size: 50px;
+    font-family: 'Microsoft JhengHei';
+
+} 
+    .name{
+    position:absolute;
+    padding:10px;
+    top:250px;
+    width: 300px;
+    border:0px;
+    border-bottom: 2px solid black;
+    font-size: 30px;
+
+    } 
+    .submit{
+    position:absolute;
+    padding:10px;
+    top:250px;
+    left:320px;
+    border-width: 0px;
+    background-color: white;
+    font-size: 30px;
+
+
+    }
+    .bodytext{
+    position:absolute;
+    top:280;
+    color: black;
+    padding: 2px;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="greeting">Hi there! Welcome to my space. <br>Please type your name below and get a ticket.</div>
+    <div class="chinese">欢迎光临！请在下面输入您的名字然后取一张门票</div>
+    <form method="POST" action="/formdata">        
+    <input type="text" class="name" name="guestname">
+    <input type="submit" class="submit" name="submit" value="Submit">
+    </form>
+    <!-- <div class="bodytext">Here is your ticket!</div> -->
+    
+</body>
+
+</html> 
